@@ -1,6 +1,10 @@
 package william.com.company;
 
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -8,20 +12,21 @@ import java.util.Scanner;
  */
 public class Main {
 
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Please enter integer number ");
-        int size =  in.nextInt();
-        int[] grades = new int[size];
+    public static void main(String[] args) throws FileNotFoundException {
 
-        System.out.println("Please " + size + " number. Press enter after each");
-        for (int i=0; i<grades.length; i++) {
-            grades[i] = in.nextInt();
+        Scanner in = new Scanner(new File("students.txt"));
+
+        List<String> students = new ArrayList<>();
+
+        while (in.hasNextLine()) {
+            students.add(in.nextLine());
         }
+
+        for (int i=0; i< students.size(); i++) {
+            System.out.println("name: " + students.get(i));
+        }
+
         in.close();
 
-        for (int i=0; i<grades.length; i++) {
-            System.out.println(grades[i]);
-        }
     }
 }
