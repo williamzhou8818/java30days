@@ -1,32 +1,25 @@
 package william.com.company;
 
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
-/**
- *
- */
 public class Main {
 
-    public static void main(String[] args) throws FileNotFoundException {
 
-        Scanner in = new Scanner(new File("students.txt"));
+    public static void main(String[] args) {
+        int[][] data = {
+                {4, 6, 3, 10},
+                {4, 2, 40, 1},
+                {5, 34, 1, 43}
+        };
+//        data[1][2] = 49;
+//        System.out.println(data[1][2]);
 
-        List<String> students = new ArrayList<>();
-
-        while (in.hasNextLine()) {
-            students.add(in.nextLine());
+        for (int i = 0; i < data.length; i++) {
+           for (int j = 0; j < data[i].length; j++) {
+               System.out.print(data[i][j] + " ");
+           }
+            System.out.println();
         }
 
-        for (int i=0; i< students.size(); i++) {
-            System.out.println("name: " + students.get(i));
-        }
 
-        in.close();
 
     }
 }
